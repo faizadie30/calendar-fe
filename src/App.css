@@ -1,0 +1,29 @@
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.form-check-input {
+  cursor: pointer !important;
+}
+
+.content {
+  height: 100% !important;
+}
+
+.dropdown-toggle {
+  min-width: 150px !important;
+  border-radius: 25px !important;
+}
+
+.dropdown-menu {
+  z-index: 999;
+}
+
+.btn-action-list {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 999;
+  background-color: white;
+  padding-top: 10px;
+}

@@ -1,0 +1,15 @@
+.calendar {
+  border: none !important;
+  align-content: center;
+  width: 300px;
+}
+
+.calendar .react-calendar__tile--now {
+  background: #cdf0ea !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .calendar {
+    width: 350px !important;
+  }
+}

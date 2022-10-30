@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getAllData } from './SchedulesApi';
+import { getAllData, processSaveData } from './SchedulesApi';
 
 const initialState = {
   startDate: '',
@@ -11,9 +11,8 @@ const initialState = {
 export const saveData = createAsyncThunk(
   'scheduleSetup/saveData',
   async (data) => {
-    console.log('data:', data);
-    // const response = await getSchedules(chatId);
-    return data;
+    const response = await processSaveData(data);
+    return response;
   }
 );
 
@@ -56,6 +55,21 @@ export const ScheduleSlice = createSlice({
         return state;
       })
       .addCase(getDataAll.rejected, (state) => {
+        state.eventDates = [];
+
+        return state;
+      })
+      .addCase(saveData.pending, (state) => {
+        state.eventDates = [];
+        return state;
+      })
+      .addCase(saveData.fulfilled, (state, action) => {
+        const resData = action.payload.data;
+        state.eventDates = resData.data;
+
+        return state;
+      })
+      .addCase(saveData.rejected, (state) => {
         state.eventDates = [];
 
         return state;

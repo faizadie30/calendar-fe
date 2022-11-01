@@ -71,7 +71,6 @@ export const ScheduleSlice = createSlice({
       })
       .addCase(saveData.rejected, (state) => {
         state.eventDates = [];
-
         return state;
       });
   },
